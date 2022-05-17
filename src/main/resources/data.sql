@@ -18,12 +18,15 @@
 --
 -- Table structure for table `piezas`
 --
+create database if not exists piezas_y_proveedores;
+
+use piezas_y_proveedores;
 
 DROP TABLE IF EXISTS `piezas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `piezas` (
-  `codigo` int NOT NULL,
+  `codigo` int auto_increment,
   `nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`codigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -99,5 +102,6 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
 
 -- Dump completed on 2022-05-17 10:01:49
