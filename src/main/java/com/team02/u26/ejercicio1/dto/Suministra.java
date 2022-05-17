@@ -120,6 +120,12 @@ public class Suministra {
 	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Suministra [id=" + id + ", proveedor=" + proveedor + ", Pieza=" + Pieza + ", precio=" + precio + "]";
+	}
 	
 	
 

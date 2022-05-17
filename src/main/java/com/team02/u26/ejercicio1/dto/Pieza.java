@@ -84,6 +84,11 @@ public class Pieza {
 	public void setSuministra(List<Suministra> suministra) {
 		Suministra = suministra;
 	}
+
+	@Override
+	public String toString() {
+		return "Pieza [codigo=" + codigo + ", nombre=" + nombre + ", Suministra=" + Suministra + "]";
+	}
 	
 	
 	
