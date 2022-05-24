@@ -97,7 +97,7 @@ public class Proveedor {
 	 * @return the suministra
 	 */
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "suministra")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Suministra")
 	public List<Suministra> getSuministra() {
 		return suministra;
 	}

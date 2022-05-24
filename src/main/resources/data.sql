@@ -27,8 +27,8 @@ DROP TABLE IF EXISTS `piezas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `piezas` (
-  `codigo` int auto_increment,
-  `nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`codigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `proveedores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proveedores` (
-  `id` char(4),
+  `id` CHAR(4),
   `nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -75,10 +75,10 @@ DROP TABLE IF EXISTS `suministra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `suministra` (
-  `id` int auto_increment,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `codigo_pieza` int NOT NULL,
   `id_proveedor` char(4) NOT NULL,
-  `precio` int DEFAULT NULL,
+  `precio` INT DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_proveedor` (`id_proveedor`),
   CONSTRAINT `suministra_ibfk_1` FOREIGN KEY (`codigo_pieza`) REFERENCES `piezas` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
