@@ -74,10 +74,11 @@ DROP TABLE IF EXISTS `suministra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `suministra` (
+  `id` int auto_increment,
   `codigo_pieza` int NOT NULL,
   `id_proveedor` char(4) NOT NULL,
   `precio` int DEFAULT NULL,
-  PRIMARY KEY (`codigo_pieza`,`id_proveedor`),
+  PRIMARY KEY (`id`),
   KEY `id_proveedor` (`id_proveedor`),
   CONSTRAINT `suministra_ibfk_1` FOREIGN KEY (`codigo_pieza`) REFERENCES `piezas` (`codigo`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `suministra_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
@@ -90,7 +91,7 @@ CREATE TABLE `suministra` (
 
 LOCK TABLES `suministra` WRITE;
 /*!40000 ALTER TABLE `suministra` DISABLE KEYS */;
-INSERT INTO `suministra` VALUES (1,'000A',75),(2,'000B',15),(3,'000C',300),(4,'000D',20),(5,'000E',60),(6,'000F',45),(7,'000G',15),(8,'000H',55),(9,'000I',100),(10,'001J',35);
+INSERT INTO `suministra` VALUES (1,1,'000A',75),(2,2,'000B',15),(3,3,'000C',300),(4,4,'000D',20),(5,5,'000E',60),(6,6,'000F',45),(7,7,'000G',15),(8,8,'000H',55),(9,9,'000I',100),(10,10,'001J',35);
 /*!40000 ALTER TABLE `suministra` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

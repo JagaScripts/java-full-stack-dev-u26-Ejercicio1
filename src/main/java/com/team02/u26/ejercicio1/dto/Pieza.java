@@ -11,13 +11,17 @@ package com.team02.u26.ejercicio1.dto;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Pieza.java
@@ -29,19 +33,34 @@ public class Pieza {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+	@Column(name="codigo")
 	private int codigo;
 	
 	private String nombre;
 	
 	@OneToMany
-    @JoinColumn(name="id")
-    private List<Suministra> Suministra;
+    @JoinColumn(name="codigo")
+    private List<Suministra> suministra;
 
 	/**
 	 * 
 	 */
 	public Pieza() {
 	}
+	
+	
+
+	/**
+	 * @param codigo
+	 * @param nombre
+	 * @param suministra
+	 */
+	public Pieza(int codigo, String nombre) {
+		this.codigo = codigo;
+		this.nombre = nombre;
+	}
+
+
 
 	/**
 	 * @return the codigo
@@ -74,20 +93,22 @@ public class Pieza {
 	/**
 	 * @return the suministra
 	 */
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "suministra")
 	public List<Suministra> getSuministra() {
-		return Suministra;
+		return suministra;
 	}
 
 	/**
 	 * @param suministra the suministra to set
 	 */
 	public void setSuministra(List<Suministra> suministra) {
-		Suministra = suministra;
+		this.suministra = suministra;
 	}
 
 	@Override
 	public String toString() {
-		return "Pieza [codigo=" + codigo + ", nombre=" + nombre + ", Suministra=" + Suministra + "]";
+		return "Pieza [codigo=" + codigo + ", nombre=" + nombre + ", suministra=" + suministra + "]";
 	}
 	
 	

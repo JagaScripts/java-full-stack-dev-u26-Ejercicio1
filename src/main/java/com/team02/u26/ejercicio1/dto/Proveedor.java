@@ -9,15 +9,25 @@
  */
 package com.team02.u26.ejercicio1.dto;
 
+/**
+ * 
+ */
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
+ * Proveedor.java
+ *
+ */
+
+/**
+ * 
  * Proveedor.java
  *
  */
@@ -29,6 +39,10 @@ public class Proveedor {
 	private String id;
 	
 	private String nombre;
+	
+	@OneToMany
+    @JoinColumn(name="id")
+    private List<Suministra> suministra;
 
 	/**
 	 * 
@@ -76,6 +90,22 @@ public class Proveedor {
 	@Override
 	public String toString() {
 		return "Proveedor [id=" + id + ", nombre=" + nombre + "]";
+	}
+
+	/**
+	 * @return the suministra
+	 */
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "suministra")
+	public List<Suministra> getSuministra() {
+		return suministra;
+	}
+
+	/**
+	 * @param suministra the suministra to set
+	 */
+	public void setSuministra(List<Suministra> suministra) {
+		this.suministra = suministra;
 	}
 	
 	

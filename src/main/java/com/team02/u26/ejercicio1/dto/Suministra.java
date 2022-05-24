@@ -11,8 +11,6 @@ package com.team02.u26.ejercicio1.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,11 +26,11 @@ public class Suministra {
 
 	// Atributos de entidad registro_curso
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
 	private int id;
 
+	
 	@ManyToOne
-	@JoinColumn(name = "id_proveerdor")
+	@JoinColumn(name = "id_proveedor")
 	Proveedor proveedor;
 
 	@ManyToOne
@@ -40,8 +38,16 @@ public class Suministra {
 	Pieza Pieza;
 
 
-	@Column(name = "grade") // no hace falta si se llama igual
+	@Column(name = "precio") // no hace falta si se llama igual
 	private int precio;
+
+	
+
+	/**
+	 * 
+	 */
+	public Suministra() {
+	}
 
 
 	/**
@@ -50,7 +56,7 @@ public class Suministra {
 	 * @param pieza
 	 * @param precio
 	 */
-	public Suministra(int id, Proveedor proveedor, com.team02.u26.ejercicio1.dto.Pieza pieza, int precio) {
+	public Suministra(int id, Proveedor proveedor, Pieza pieza, int precio) {
 		this.id = id;
 		this.proveedor = proveedor;
 		Pieza = pieza;
