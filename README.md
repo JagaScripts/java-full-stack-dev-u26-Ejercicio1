@@ -5,3 +5,4 @@ Este repositorio corresponde a ejercicios realizados en la formación de Java Fu
 
 
 ![image](https://github.com/JagaScripts/java-full-stack-dev-u26-Ejercicio1/blob/master/postman.jpg)
+![image](https://github.com/JagaScripts/java-full-stack-dev-u26-Ejercicio1/blob/master/ej1.jpg)
