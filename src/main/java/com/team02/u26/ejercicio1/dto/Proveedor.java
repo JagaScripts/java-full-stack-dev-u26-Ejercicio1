@@ -54,9 +54,10 @@ public class Proveedor {
 	 * @param id
 	 * @param nombre
 	 */
-	public Proveedor(String id, String nombre) {
+	public Proveedor(String id, String nombre, List<Suministra> suministra) {
 		this.id = id;
 		this.nombre = nombre;
+		this.suministra = suministra;
 	}
 
 	/**

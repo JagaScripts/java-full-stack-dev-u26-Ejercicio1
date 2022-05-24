@@ -55,9 +55,10 @@ public class Pieza {
 	 * @param nombre
 	 * @param suministra
 	 */
-	public Pieza(int codigo, String nombre) {
+	public Pieza(int codigo, String nombre, List<Suministra> suministra) {
 		this.codigo = codigo;
 		this.nombre = nombre;
+		this.suministra = suministra;
 	}
 
 

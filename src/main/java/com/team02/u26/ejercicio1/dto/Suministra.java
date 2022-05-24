@@ -21,7 +21,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table
+@Table(name = "suministra")
 public class Suministra {
 
 	// Atributos de entidad registro_curso
@@ -35,7 +35,7 @@ public class Suministra {
 
 	@ManyToOne
 	@JoinColumn(name = "codigo_pieza")
-	Pieza Pieza;
+	Pieza pieza;
 
 
 	@Column(name = "precio") // no hace falta si se llama igual
@@ -59,7 +59,7 @@ public class Suministra {
 	public Suministra(int id, Proveedor proveedor, Pieza pieza, int precio) {
 		this.id = id;
 		this.proveedor = proveedor;
-		Pieza = pieza;
+		this.pieza = pieza;
 		this.precio = precio;
 	}
 
@@ -100,7 +100,7 @@ public class Suministra {
 	 * @return the pieza
 	 */
 	public Pieza getPieza() {
-		return Pieza;
+		return pieza;
 	}
 
 
@@ -108,7 +108,7 @@ public class Suministra {
 	 * @param pieza the pieza to set
 	 */
 	public void setPieza(Pieza pieza) {
-		Pieza = pieza;
+		this.pieza = pieza;
 	}
 
 
@@ -130,7 +130,7 @@ public class Suministra {
 
 	@Override
 	public String toString() {
-		return "Suministra [id=" + id + ", proveedor=" + proveedor + ", Pieza=" + Pieza + ", precio=" + precio + "]";
+		return "Suministra [id=" + id + ", proveedor=" + proveedor + ", pieza=" + pieza + ", precio=" + precio + "]";
 	}
 	
 	

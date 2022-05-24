@@ -18,9 +18,10 @@
 --
 -- Table structure for table `piezas`
 --
-create database if not exists piezas_y_proveedores;
+DROP DATABASE IF EXISTS piezas_y_proveedores;
+CREATE DATABASE IF NOT EXISTS piezas_y_proveedores;
 
-use piezas_y_proveedores;
+USE piezas_y_proveedores;
 
 DROP TABLE IF EXISTS `piezas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -50,7 +51,7 @@ DROP TABLE IF EXISTS `proveedores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proveedores` (
-  `id` char(4) NOT NULL,
+  `id` char(4),
   `nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -80,8 +81,8 @@ CREATE TABLE `suministra` (
   `precio` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_proveedor` (`id_proveedor`),
-  CONSTRAINT `suministra_ibfk_1` FOREIGN KEY (`codigo_pieza`) REFERENCES `piezas` (`codigo`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  CONSTRAINT `suministra_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT `suministra_ibfk_1` FOREIGN KEY (`codigo_pieza`) REFERENCES `piezas` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `suministra_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

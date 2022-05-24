@@ -55,7 +55,7 @@ public class PiezaServiceImpl implements IPiezaService{
 
 	@Override
 	public void eliminarPieza(int codigo) {
-		iPiezaDAO.deleteById(codigo);		
+		iPiezaDAO.deleteById(codigo);
 	}
 	
 }
